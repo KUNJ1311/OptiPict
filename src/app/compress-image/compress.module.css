@@ -1,0 +1,3 @@
+.compress_image {
+	min-height: calc(100vh - 60px);
+}
