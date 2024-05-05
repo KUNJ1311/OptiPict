@@ -1,11 +1,13 @@
 .tools_card {
 	background: #fff;
-	-ms-flex-positive: 0;
+	max-width: 320px;
+	width: 100%;
+	/* -ms-flex-positive: 0;
 	flex-grow: 0;
 	-ms-flex-negative: 0;
 	flex-shrink: 0;
 	-ms-flex-preferred-size: calc(16.666% - 4px);
-	flex-basis: calc(16.666% - 4px);
+	flex-basis: calc(16.666% - 4px); */
 	border: 1px solid #f5f5fa;
 	margin: 2px;
 	position: relative;
@@ -42,12 +44,12 @@
 	.tools_card {
 		font-size: 36px;
 		line-height: 38px;
-		-ms-flex-positive: 0;
+		/* -ms-flex-positive: 0;
 		flex-grow: 0;
 		-ms-flex-negative: 0;
 		flex-shrink: 0;
 		-ms-flex-preferred-size: calc(20% - 4px);
-		flex-basis: calc(20% - 4px);
+		flex-basis: calc(20% - 4px); */
 	}
 }
 .tools_card a {
@@ -62,12 +64,12 @@
 }
 @media (min-width: 1280px) {
 	.tools_card {
-		-ms-flex-positive: 0;
+		/* -ms-flex-positive: 0;
 		flex-grow: 0;
 		-ms-flex-negative: 0;
 		flex-shrink: 0;
 		-ms-flex-preferred-size: calc(25% - 4px);
-		flex-basis: calc(25% - 4px);
+		flex-basis: calc(25% - 4px); */
 	}
 }
 .icon {
@@ -78,4 +80,8 @@
 }
 .tools_card:hover .icon img {
 	transform: scale(1.1);
+}
+.tools_card .icon img {
+	-webkit-transition: all 0.2s ease-out, -webkit-box-shadow 0.2s ease-out;
+	transition: all 0.2s ease-out, -webkit-box-shadow 0.2s ease-out;
 }

@@ -6,7 +6,7 @@ import text_logo from "@/src/assets/text.svg";
 
 const Navbar = () => {
 	return (
-		<header>
+		<header style={{ position: "sticky", top: "0", zIndex: "1000" }}>
 			<nav className={styles.navbar}>
 				<Link href="/" className={styles.logo_link}>
 					<Image src={logo} className={styles.logo1} alt="OptiPict Logo" />
@@ -14,12 +14,12 @@ const Navbar = () => {
 				</Link>
 				<div className={styles.menu}>
 					<ul>
-						{/* <li>
-							<Link href="/src/app/home">Home</Link>
-						</li> */}
-						{/* <li>
-							<Link href="/src/app/blog">Blog</Link>
-						</li> */}
+						<li>
+							<Link href="/">Home</Link>
+						</li>
+						<li>
+							<Link href="/blog">Blog</Link>
+						</li>
 					</ul>
 				</div>
 				<div className={styles.account}>
