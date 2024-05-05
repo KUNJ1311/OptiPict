@@ -1,19 +1,19 @@
-const page = (props) => {
-	return <div>${props.data}</div>;
+const page = async () => {
+	const data = await getData();
+	return <div>{data}</div>;
 };
 
-export async function getServerSideProps(context) {
+export async function getData() {
 	try {
 		const response = await fetch("http://localhost:3000/api/hello");
 		const data = await response.json();
-		return {
-			props: { data: { data } },
-		};
+		if (data.status === "ok") {
+			return data.message;
+		} else {
+			return { message: "failed to fetch data" };
+		}
 	} catch (error) {
 		console.log(error);
-		return {
-			props: { data: {} },
-		};
 	}
 }
 export default page;

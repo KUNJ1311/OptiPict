@@ -9,7 +9,7 @@ CORS(app)
 @app.route("/api/hello", methods=["GET"])
 def hello():
     return jsonify(
-        {"status": "success", "message": "Hello from backend by flask for testing :)"}
+        {"status": "ok", "message": "Hello from backend by flask for testing :)"}
     )
 
 
