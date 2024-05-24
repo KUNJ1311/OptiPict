@@ -84,3 +84,9 @@
 	color: white;
 	background-color: #4d90fe;
 }
+.compress_btn {
+	background-color: transparent;
+	border: none;
+	color: white;
+	cursor: pointer;
+}

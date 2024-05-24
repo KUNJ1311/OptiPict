@@ -8,18 +8,22 @@ const CompressImage = () => {
 	const [file, setFile] = useState();
 	const [display, setDisplay] = useState(false);
 	const [showPreview, setShowPreview] = useState(false);
+	const [fileURL, setFileURL] = useState();
+
 	const { getRootProps, getInputProps } = useDropzone({
-		onDrop: (acceptedFiles) => {
+		onDrop: async (acceptedFiles) => {
 			setDisplay(false);
 			setShowPreview(true);
+			setFile(acceptedFiles[0]);
 			let fileReader = new FileReader();
 			fileReader.onload = () => {
 				let fileURL = fileReader.result;
-				setFile(fileURL);
+				setFileURL(fileURL);
 			};
 			fileReader.readAsDataURL(acceptedFiles[0]);
 		},
 	});
+
 	useEffect(() => {
 		const handleDragEnter = () => {
 			setDisplay(true);
@@ -60,11 +64,11 @@ const CompressImage = () => {
 							<br /> Reduce the filesize of your image.
 						</h2>
 					</div>
-					<Preview showPreview={showPreview} file={file} handleReSelect={handleReSelect} />
+					<Preview showPreview={showPreview} file={file} fileURL={fileURL} handleReSelect={handleReSelect} />
 					<div id="uploader" className={styles.uploader} style={{ display: `${showPreview ? "none" : ""}` }}>
 						<a id="pickfiles" className={styles.uploader_btn} title="Add more images" data-title="Add more images" style={{ position: "relative", zIndex: "1" }} {...getRootProps()}>
 							<h3>Select image</h3>
-							<input type="file" style={{ fontSize: "999px", opacity: "0", position: "absolute", top: "0px", left: "0px", width: "100%", height: "100%" }} accept=".jpg,.jpeg,.png,.gif,.svg" tabIndex="-1" {...getInputProps()} />
+							<input encType="multipart/form-data" name="file" type="file" style={{ fontSize: "999px", opacity: "0", position: "absolute", top: "0px", left: "0px", width: "100%", height: "100%" }} accept=".jpg,.jpeg,.png,.gif,.svg" tabIndex="-1" {...getInputProps()} />
 						</a>
 						<div className={styles.uploader_droptxt}>or drop image here</div>
 					</div>
@@ -81,7 +85,7 @@ const CompressImage = () => {
 							<div className={styles.extra}>Drop your image here</div>
 							<div className={styles.support}>Supports: JPG, PNG, SVG, JPEG</div>
 						</div>
-						<input type="file" style={{ fontSize: "999px", opacity: "0", position: "absolute", top: "0px", left: "0px", width: "100%", height: "100%" }} accept=".jpg,.jpeg,.png,.gif,.svg" tabIndex="-1" {...getInputProps()} />
+						<input encType="multipart/form-data" name="file" type="file" style={{ fontSize: "999px", opacity: "0", position: "absolute", top: "0px", left: "0px", width: "100%", height: "100%" }} accept=".jpg,.jpeg,.png,.gif,.svg" tabIndex="-1" {...getInputProps()} />
 					</div>
 				</div>
 			</div>

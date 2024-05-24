@@ -2,10 +2,11 @@ const page = async () => {
 	const data = await getData();
 	return <div>{data}</div>;
 };
+export default page;
 
 export async function getData() {
 	try {
-		const response = await fetch("http://localhost:3000/api/hello");
+		const response = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/hello`);
 		const data = await response.json();
 		if (data.status === "ok") {
 			return data.message;
@@ -16,4 +17,3 @@ export async function getData() {
 		console.log(error);
 	}
 }
-export default page;
