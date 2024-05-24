@@ -2,14 +2,15 @@ from flask import Flask, jsonify, request
 from flask_cors import CORS
 import os
 from werkzeug.utils import secure_filename
-from keras.models import load_model
 from PIL import Image
+from keras.preprocessing import image
 import numpy as np
 import cv2
 
 app = Flask(__name__)
 CORS(app)
 
+model_color = load_model("C:\\Kunj\\Programming\\Next\\optipict\\api\\color_64.h5")
 UPLOAD_FOLDER = "C:\\Kunj\\Programming\\Next\\optipict\\api\\uploads"
 app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
 
@@ -35,13 +36,12 @@ def compress():
 
     if file:
         filename = secure_filename(file.filename)
-        file.save(os.path.join(app.config["UPLOAD_FOLDER"], filename))
-        model_color = load_model(r"C:\Kunj\Programming\Next\optipict\api\color_64.h5")
-        image = Image.open(file)
+        filepath = os.path.join(app.config["UPLOAD_FOLDER"], filename)
+        file.save(filepath)
+        image = Image.open(filepath)
         image = image.convert("RGB")
         image = np.array(image) / 255.0
         height, width, channels = image.shape
-        app.logger.info(height, width)
         resized_image = image
         # Check if either height or width is greater than 1000
         if height > 1500 or width > 1500:
