@@ -2,8 +2,8 @@ from flask import Flask, jsonify, request
 from flask_cors import CORS
 import os
 from werkzeug.utils import secure_filename
+from keras.models import load_model
 from PIL import Image
-from keras.preprocessing import image
 import numpy as np
 import cv2
 
