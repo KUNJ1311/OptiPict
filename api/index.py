@@ -1,6 +1,7 @@
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 import os
+import sys
 from werkzeug.utils import secure_filename
 from keras.models import load_model
 from PIL import Image
@@ -9,6 +10,8 @@ import cv2
 
 app = Flask(__name__)
 CORS(app)
+sys.stdin.reconfigure(encoding="utf-8")
+sys.stdout.reconfigure(encoding="utf-8")
 
 model_color = load_model("C:\\Kunj\\Programming\\Next\\optipict\\api\\color_64.h5")
 UPLOAD_FOLDER = "C:\\Kunj\\Programming\\Next\\optipict\\api\\uploads"
@@ -66,13 +69,19 @@ def compress():
 
         input_image = np.expand_dims(resized_image, axis=0)
         predicted_image = model_color.predict(input_image)
+        # Scale the pixel values back to the original range (0-255) for uint8 format
+        compressed_img_uint8 = (predicted_image[0] * 255).astype(np.uint8)
 
+        # Save the compressed image
+        cv2.imwrite(
+            "compressed_image_64.jpg",
+            cv2.cvtColor(compressed_img_uint8, cv2.COLOR_RGB2BGR),
+        )
         return jsonify(
             {
                 "success": True,
                 "msg": "File uploaded and compressed",
                 "filename": filename,
-                "data": predicted_image[0],
             }
         )
 
