@@ -1,6 +1,5 @@
 from flask import Flask, jsonify, request
 from flask_cors import CORS
-import os
 import sys
 import base64
 from io import BytesIO
@@ -16,8 +15,6 @@ sys.stdin.reconfigure(encoding="utf-8")
 sys.stdout.reconfigure(encoding="utf-8")
 
 model_color = load_model("C:\\Kunj\\Programming\\Next\\optipict\\api\\color_64.h5")
-UPLOAD_FOLDER = "C:\\Kunj\\Programming\\Next\\optipict\\api\\uploads"
-app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
 
 
 # * /api/hello
