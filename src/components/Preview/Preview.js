@@ -11,7 +11,24 @@ const Preview = (props) => {
 				body: formData,
 			});
 			const data = await res.json();
-			console.log(data);
+			if (data.success) {
+				console.log(data);
+				const byteCharacters = atob(data.image_data);
+				const byteNumbers = new Array(byteCharacters.length);
+				for (let i = 0; i < byteCharacters.length; i++) {
+					byteNumbers[i] = byteCharacters.charCodeAt(i);
+				}
+				const byteArray = new Uint8Array(byteNumbers);
+				const blob = new Blob([byteArray], { type: "image/jpeg" });
+				const url = window.URL.createObjectURL(blob);
+				const a = document.createElement("a");
+				a.style.display = "none";
+				a.href = url;
+				a.download = data.filename;
+				document.body.appendChild(a);
+				a.click();
+				window.URL.revokeObjectURL(url);
+			}
 		} catch (error) {
 			console.error(error);
 		}

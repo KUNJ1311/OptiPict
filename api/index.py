@@ -2,6 +2,8 @@ from flask import Flask, jsonify, request
 from flask_cors import CORS
 import os
 import sys
+import base64
+from io import BytesIO
 from werkzeug.utils import secure_filename
 from keras.models import load_model
 from PIL import Image
@@ -39,9 +41,7 @@ def compress():
 
     if file:
         filename = secure_filename(file.filename)
-        filepath = os.path.join(app.config["UPLOAD_FOLDER"], filename)
-        file.save(filepath)
-        image = Image.open(filepath)
+        image = Image.open(file.stream)
         image = image.convert("RGB")
         image = np.array(image) / 255.0
         height, width, channels = image.shape
@@ -72,16 +72,22 @@ def compress():
         # Scale the pixel values back to the original range (0-255) for uint8 format
         compressed_img_uint8 = (predicted_image[0] * 255).astype(np.uint8)
 
-        # Save the compressed image
-        cv2.imwrite(
-            "compressed_image_64.jpg",
-            cv2.cvtColor(compressed_img_uint8, cv2.COLOR_RGB2BGR),
+        # Convert the compressed image to an in-memory file
+        _, buffer = cv2.imencode(
+            ".jpg", cv2.cvtColor(compressed_img_uint8, cv2.COLOR_RGB2BGR)
         )
+        compressed_image_io = BytesIO(buffer)
+
+        # Encode image in base64
+        compressed_image_base64 = base64.b64encode(buffer).decode("utf-8")
+
+        # Return JSON with the base64 encoded image
         return jsonify(
             {
                 "success": True,
                 "msg": "File uploaded and compressed",
                 "filename": filename,
+                "image_data": compressed_image_base64,
             }
         )
 

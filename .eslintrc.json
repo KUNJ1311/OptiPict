@@ -1,4 +1,8 @@
 {
+	"env": {
+		"browser": true,
+		"es6": true
+	},
 	"extends": ["next/core-web-vitals", "eslint:recommended", "plugin:react/recommended", "plugin:react-hooks/recommended", "plugin:react/jsx-runtime"],
 	"plugins": ["react", "react-hooks"],
 	"rules": {
