@@ -17,16 +17,16 @@ const Navbar = () => {
 						<li>
 							<Link href="/">Home</Link>
 						</li>
-						<li>
+						{/* <li>
 							<Link href="/blog">Blog</Link>
-						</li>
+						</li> */}
 					</ul>
 				</div>
 				<div className={styles.account}>
-					<ul>
+					{/* <ul>
 						<li>Login</li>
 						<li>Signup</li>
-					</ul>
+					</ul> */}
 				</div>
 			</nav>
 		</header>

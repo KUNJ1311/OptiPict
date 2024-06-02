@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import { useDropzone } from "react-dropzone";
 import styles from "./compress.module.css";
-import Preview from "@/src/components/Preview/Preview";
+import Preview from "@/src/components/Preview";
 
 const CompressImage = () => {
 	const [file, setFile] = useState();
@@ -64,7 +64,7 @@ const CompressImage = () => {
 							<br /> Reduce the filesize of your image.
 						</h2>
 					</div>
-					<Preview showPreview={showPreview} file={file} fileURL={fileURL} handleReSelect={handleReSelect} />
+					<Preview showPreview={showPreview} file={file} fileURL={fileURL} setShowPreview={setShowPreview} setFileURL={setFileURL} handleReSelect={handleReSelect} />
 					<div id="uploader" className={styles.uploader} style={{ display: `${showPreview ? "none" : ""}` }}>
 						<a id="pickfiles" className={styles.uploader_btn} title="Add more images" data-title="Add more images" style={{ position: "relative", zIndex: "1" }} {...getRootProps()}>
 							<h3>Select image</h3>

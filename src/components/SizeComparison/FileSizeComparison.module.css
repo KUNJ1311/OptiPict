@@ -1,0 +1,55 @@
+.container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 1rem;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	margin: 1rem 0;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.header {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-bottom: 1rem;
+}
+
+.title {
+	font-size: 1.1rem;
+	margin-bottom: 0.5rem;
+	color: #333; /* Darker text for better contrast */
+}
+
+.description {
+	font-size: 0.9rem;
+	color: #6a6a6a;
+}
+
+.comparisonBar {
+	height: 30px;
+	width: 100%;
+	background-color: #f5f5f5;
+	border-radius: 5px;
+	display: flex;
+	align-items: center;
+	position: relative;
+}
+
+.oldSizeText,
+.newSizeText {
+	flex: 1;
+	font-size: 1rem;
+	font-weight: bold;
+	padding: 0 1rem;
+	text-align: center;
+}
+
+.oldSizeText {
+	border-right: 1px solid #b8b8b8;
+	color: red;
+}
+.newSizeText {
+	color: green;
+}

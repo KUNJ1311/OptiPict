@@ -14,7 +14,7 @@ CORS(app)
 sys.stdin.reconfigure(encoding="utf-8")
 sys.stdout.reconfigure(encoding="utf-8")
 
-model_color = load_model("C:\\Kunj\\Programming\\Next\\optipict\\api\\color_64.h5")
+model_color = load_model("./api/color_64.h5")
 
 
 # * /api/hello
@@ -82,7 +82,7 @@ def compress():
         return jsonify(
             {
                 "success": True,
-                "msg": "File uploaded and compressed",
+                "msg": "File compressed",
                 "filename": filename,
                 "image_data": compressed_image_base64,
             }
