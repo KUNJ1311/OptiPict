@@ -1,0 +1,57 @@
+.main {
+	display: flex;
+	min-height: calc(100vh - 60px);
+	flex-direction: column;
+}
+.bg_image {
+	overflow: hidden;
+	width: 100vw;
+	height: 100vh;
+	z-index: -1;
+	position: fixed;
+	background-position: center center;
+	background-size: 100% auto;
+	background-image: url(../assets/background.svg);
+}
+.title {
+	margin-top: 20px;
+	justify-content: center;
+	text-align: center;
+}
+.title h1 {
+	font-weight: 600;
+	font-size: 42px;
+	line-height: 52px;
+	color: #33333b;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 4px;
+	max-width: 1100px;
+}
+.title h2 {
+	line-height: 32px;
+	font-size: 22px;
+	font-weight: 400;
+	color: #47474f;
+	max-width: 980px;
+	margin: auto auto 28px;
+}
+.tools {
+	display: flex;
+	justify-content: center;
+	max-width: 1440px;
+	flex-wrap: wrap;
+	margin: 0 auto;
+	padding: 0 68px 42px;
+	width: 100%;
+}
+.tools_container {
+	display: -ms-flexbox;
+	display: flex;
+	width: 100%;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	position: relative;
+	justify-content: center;
+}
