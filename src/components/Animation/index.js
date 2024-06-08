@@ -5,7 +5,7 @@ const MyAnimation = () => {
 	return (
 		<div style={{ width: "250px", height: "250px", marginBottom: "18px" }}>
 			<Lottie animationData={animationData} loop={true} />
-			<span style={{ fontSize: "20px" }}>Compressing your image</span>
+			<span style={{ fontSize: "20px" }}>Compressing your image...</span>
 		</div>
 	);
 };

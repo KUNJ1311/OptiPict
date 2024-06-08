@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./card.module.css";
 import Link from "next/link";
 import Image from "next/image";
@@ -14,7 +13,7 @@ const Card = () => {
 				<h3>Compress Image</h3>
 				<div className={styles.data}>
 					<p>
-						Compress <strong>JPG</strong>, <strong>PNG</strong>, <strong>SVG</strong>, and <strong>GIFs</strong> while saving space and maintaining quality.
+						Compress <strong>JPG</strong>, <strong>PNG</strong>, and <strong>JPEG</strong> while saving space and maintaining quality.
 					</p>
 				</div>
 			</Link>
