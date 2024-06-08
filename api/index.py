@@ -42,29 +42,30 @@ def compress():
         image = image.convert("RGB")
         image = np.array(image) / 255.0
         height, width, channels = image.shape
-        resized_image = image
-        # Check if either height or width is greater than 1000
-        if height > 1500 or width > 1500:
-            # Calculate the aspect ratio
-            aspect_ratio = width / height
+        # resized_image = image
+        # # Check if either height or width is greater than 1000
+        # if height > 1500 or width > 1500:
+        #     # Calculate the aspect ratio
+        #     aspect_ratio = width / height
 
-            # Calculate the new dimensions
-            new_width = min(width, 1500)
-            new_height = int(new_width / aspect_ratio)
+        #     # Calculate the new dimensions
+        #     new_width = min(width, 1500)
+        #     new_height = int(new_width / aspect_ratio)
 
-            # Resize the image while maintaining aspect ratio
-            resized_image = cv2.resize(image, (new_width, new_height))
+        #     # Resize the image while maintaining aspect ratio
+        #     resized_image = cv2.resize(image, (new_width, new_height))
 
-            # Check if the new height exceeds 1000
-            if new_height > 1500:
-                # Calculate the final dimensions
-                final_height = 1500
-                final_width = int(final_height * aspect_ratio)
+        #     # Check if the new height exceeds 1000
+        #     if new_height > 1500:
+        #         # Calculate the final dimensions
+        #         final_height = 1500
+        #         final_width = int(final_height * aspect_ratio)
 
-                # Resize the image to final dimensions
-                resized_image = cv2.resize(resized_image, (final_width, final_height))
+        #         # Resize the image to final dimensions
+        #         resized_image = cv2.resize(resized_image, (final_width, final_height))
 
-        input_image = np.expand_dims(resized_image, axis=0)
+        # input_image = np.expand_dims(resized_image, axis=0)
+        input_image = np.expand_dims(image, axis=0)
         predicted_image = model_color.predict(input_image)
         # Scale the pixel values back to the original range (0-255) for uint8 format
         compressed_img_uint8 = (predicted_image[0] * 255).astype(np.uint8)

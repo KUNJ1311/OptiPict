@@ -60,7 +60,7 @@ const CompressImage = () => {
 					<div className={styles.tool_header}>
 						<h1 className={styles.tool_header_title}>Compress IMAGE</h1>
 						<h2 className={styles.tool_header_subtitle}>
-							Compress <b>JPG</b>, <b>PNG</b>, <b>SVG</b>, or <b>JPEG</b> with the best quality and compression.
+							Compress <b>JPG</b>, <b>PNG</b>, or <b>JPEG</b> with the best quality and compression.
 							<br /> Reduce the filesize of your image.
 						</h2>
 					</div>
@@ -68,7 +68,7 @@ const CompressImage = () => {
 					<div id="uploader" className={styles.uploader} style={{ display: `${showPreview ? "none" : ""}` }}>
 						<a id="pickfiles" className={styles.uploader_btn} title="Add more images" data-title="Add more images" style={{ position: "relative", zIndex: "1" }} {...getRootProps()}>
 							<h3>Select image</h3>
-							<input encType="multipart/form-data" name="file" type="file" style={{ fontSize: "999px", opacity: "0", position: "absolute", top: "0px", left: "0px", width: "100%", height: "100%" }} accept=".jpg,.jpeg,.png,.gif,.svg" tabIndex="-1" {...getInputProps()} />
+							<input encType="multipart/form-data" name="file" type="file" style={{ fontSize: "999px", opacity: "0", position: "absolute", top: "0px", left: "0px", width: "100%", height: "100%" }} accept=".jpg,.jpeg,.png" tabIndex="-1" {...getInputProps()} />
 						</a>
 						<div className={styles.uploader_droptxt}>or drop image here</div>
 					</div>
@@ -83,9 +83,9 @@ const CompressImage = () => {
 								</svg>
 							</div>
 							<div className={styles.extra}>Drop your image here</div>
-							<div className={styles.support}>Supports: JPG, PNG, SVG, JPEG</div>
+							<div className={styles.support}>Supports: JPG, PNG, JPEG</div>
 						</div>
-						<input encType="multipart/form-data" name="file" type="file" style={{ fontSize: "999px", opacity: "0", position: "absolute", top: "0px", left: "0px", width: "100%", height: "100%" }} accept=".jpg,.jpeg,.png,.gif,.svg" tabIndex="-1" {...getInputProps()} />
+						<input encType="multipart/form-data" name="file" type="file" style={{ fontSize: "999px", opacity: "0", position: "absolute", top: "0px", left: "0px", width: "100%", height: "100%" }} accept=".jpg,.jpeg,.png" tabIndex="-1" {...getInputProps()} />
 					</div>
 				</div>
 			</div>

@@ -1,6 +1,5 @@
 import styles from "./FileSizeComparison.module.css";
 const FileSizeComparison = ({ oldSize, newSize }) => {
-	const sizeRatio = (oldSize - newSize) / oldSize;
 	const formatFileSize = (size) => {
 		const units = ["KB", "MB", "GB"];
 		let i = 0;

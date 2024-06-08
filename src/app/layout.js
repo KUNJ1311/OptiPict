@@ -5,6 +5,11 @@ import Footer from "../components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
+export const metadata = {
+	title: "OptiPict",
+	description: "OptiPict is a platform for image optimization",
+};
+
 export default function RootLayout({ children }) {
 	return (
 		<html lang="en">
