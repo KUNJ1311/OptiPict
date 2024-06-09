@@ -14,7 +14,7 @@ CORS(app)
 sys.stdin.reconfigure(encoding="utf-8")
 sys.stdout.reconfigure(encoding="utf-8")
 
-model_color = load_model("./color_64.h5")  # to run on local change "./api/color_64.h5"
+model_color = load_model("./api/color_64.h5")  # to run on docker change "./color_64.h5"
 
 
 # * /api/hello
